@@ -1,0 +1,38 @@
+
+What is a Multi-branch Pipeline? 
+
+A multi-branch pipeline is a concept of automatically creating Jenkins pipelines based on Git branches.
+It can automatically discover new branches in the SCM (Github) and automatically create a pipeline for that branch.
+
+we can also ignore or deselect some branches, which u don't want to run in the total repo.
+
+
+--> we create multibranch pipeline
+
+--> in Branch Sources-- select git --if repo is private add credentials
+
+--> in Discover branches -- select Filter by name (with wildcards)
+
+--> In these option, we can select include and exclude branch option
+
+--> In Build Configuration -- Script Path -- select script file name(jenkinsfile)
+
+--> In jenkinsfile , we write pipeline script
+
+--> Basic hello world script(Declarative pipeline script)
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
+
+--> Save and run (scan multiple branch pipeline)
+
+--> Automatically the new jobs will create based on the branch names
